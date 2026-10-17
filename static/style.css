@@ -595,3 +595,21 @@ footer p+p {
         justify-content: center;
     }
 }
+
+a.btn[href*="github.com"] {
+    background: #ffffff !important;
+    color: #222222 !important;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+a.btn[href*="github.com"]:hover {
+    background: #f0f0f0 !important;
+    color: #000000 !important;
+    transform: translateY(-2px);
+}
