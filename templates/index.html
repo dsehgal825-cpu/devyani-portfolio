@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | B.Tech Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo">MyPortfolio<span>.</span></a>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-image">
+                <div class="profile-circle">
+
+
+                    <img src="{{ url_for('static', filename='myphoto.jpeg.jpeg') }}" alt="My Profile Photo"
+                        class="profile-photo">
+
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <p class="intro">HELLO, I'M</p>
+
+                <h1>Devyani Sehgal</h1>
+
+                <h2>B.Tech Student
+                    <span>& Aspiring Developer</span>
+                </h2>
+
+                <p class="description">
+                    I am a second-year B.Tech student passionate about
+                    programming, web development, and learning new
+                    technologies. I enjoy building projects and solving
+                    real-world problems through code.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+
+                    <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn btn-primary" download>
+                        Download Resume
+                    </a>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <section id="about" class="section">
+            <p class="section-label">GET TO KNOW ME</p>
+            <h2 class="section-title">About Me</h2>
+            <div class="about-card">
+
+                <p>
+                    Hello! I am <strong>Devyani Sehgal</strong>, a second-year Bachelor
+                    of Technology (B.Tech) student at <strong>Shobhit University Gangoh</strong>.
+                    I am developing my skills in programming, problem-solving,
+                    and website development.
+                </p>
+                <p>
+                    My current learning interests include HTML, CSS, ,
+                    Python, C++, and Data Structures. My goal is to gain practical
+                    experience, work on meaningful projects, and become a skilled
+                    software developer.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="section alternate">
+            <p class="section-label">WHAT I AM LEARNING</p>
+            <h2 class="section-title">My Skills</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML</h3>
+                    <p>Building the structure of web pages.</p>
+                </div>
+                <div class="card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>CSS</h3>
+                    <p>Creating attractive and responsive designs.</p>
+                </div>
+
+                <div class="card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Learning programming and problem-solving.</p>
+                </div>
+                <div class="card">
+                    <div class="skill-icon">💻</div>
+                    <h3>C / C++</h3>
+                    <p>Practicing programming fundamentals and OOP.</p>
+                </div>
+                <div class="card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Tools</h3>
+                    <p>VS Code, and GitHub (as I learn them).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <p class="section-label">MY ACADEMIC JOURNEY</p>
+            <h2 class="section-title">Education</h2>
+
+            <div class="education-card">
+                <span class="year">Currently Pursuing</span>
+                <h3>Bachelor of Technology (B.Tech)</h3>
+                <p> Computer Science Engineering</p>
+                <p>Shobhit University Gangoh</p>
+                <p class="muted">Second Year</p>
+            </div>
+
+            <div class="education-card">
+                <span class="year">Completed</span>
+                <h3>Class 12th</h3>
+                <p>Silver Oak Public School</p>
+                <p class="muted"> Board= CBSE Board, year=2024, percentage=75%.</p>
+            </div>
+            <div class="education-card">
+                <span class="year">Completed</span>
+                <h3>Class 10th</h3>
+                <p>Silver Oak Public School</p>
+                <p class="muted"> Board= CBSE Board, year=2022, percentage=79%.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="section alternate">
+            <p class="section-label">WHAT I HAVE BUILT</p>
+            <h2 class="section-title">My Projects</h2>
+
+            <div class="card-grid">
+                <article class="card project-card">
+                    <div class="project-icon">🧑‍💻</div>
+                    <h3>Personal Portfolio</h3>
+                    <p>
+                        A responsive website to showcase my introduction,
+                        education, skills, and projects.
+                    </p>
+                    <p class="tech">HTML · CSS · JavaScript</p>
+                    <a href="#contact" class="project-link">Discuss Project →</a>
+                </article>
+
+                <article class="card project-card">
+                    <div class="project-icon">🎓</div>
+                    <h3>Student Performance Prediction</h3>
+                    <p>
+                        A student project idea for exploring academic data
+                        and predicting performance using Python.
+                    </p>
+                    <p class="tech">HTML · CSS · JavaScript · Python</p>
+                    <a href="#contact" class="project-link">Discuss Project →</a>
+                </article>
+
+
+
+
+        </section>
+
+        <section id="contact" class="section">
+            <p class="section-label">LET'S CONNECT</p>
+            <h2 class="section-title">Contact Me</h2>
+            <p class="contact-intro">
+                Have a project idea or want to connect? Send me a message.
+            </p>
+
+            <form id="contactForm" class="contact-form" method="POST" action="/api/contact">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message..." rows="5"
+                        required></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+
+            <div class="social-links">
+
+                <a href="https://www.linkedin.com/in/devyani-sehgal-90267233a" target="_blank"
+                    rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+
+                <a href="mailto:dsehgal825@gmail.com">
+
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="2026"></span> Devyani Sehgal | B.Tech Student</p>
+        <p>Designed and developed with ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
