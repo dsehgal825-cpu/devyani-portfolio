@@ -12,9 +12,6 @@ load_dotenv(BASE_DIR / ".env")
 
 app = Flask(__name__, template_folder="templates")
 
-@app.route("/")
-def home():
-    return render_template("index.html")
 
 @app.route("/api/contact", methods=["POST"])
 def contact():
@@ -28,10 +25,11 @@ def contact():
 
     gmail = os.getenv("GMAIL_ADDRESS")
     password = os.getenv("GMAIL_APP_PASSWORD")
-    owner = os.getenv("OWNER_EMAIL", gmail)
+    owner = os.getenv("OWNER_EMAIL") or gmail
 
     if not gmail or not password or not owner:
-        return "<h2>Email settings are missing. Please check the .env file.</h2><a href='/'>Go back</a>", 500
+        print("Email configuration missing.")
+        return "<h2>Email settings are missing.</h2><a href='/'>Go back</a>", 500
 
     try:
         msg = EmailMessage()
@@ -46,23 +44,26 @@ def contact():
             f"Message:\n{message}"
         )
 
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        # Timeout: 15 seconds
+        with smtplib.SMTP_SSL(
+            "smtp.gmail.com",
+            465,
+            timeout=15
+        ) as server:
             server.login(gmail, password)
             server.send_message(msg)
 
+        print("Contact email sent successfully.")
         return (
             "<h2>Message sent successfully!</h2>"
             "<p>Thank you for contacting me.</p>"
             "<a href='/'>Back to portfolio</a>"
-        )
+        ), 200
 
     except Exception as error:
-        print("Email sending error:", error)
+        print("Email sending error:", repr(error))
         return (
             "<h2>Message could not be sent.</h2>"
-            "<p>Please check the server terminal and email settings.</p>"
+            "<p>Please try again later.</p>"
             "<a href='/'>Go back</a>"
         ), 500
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
