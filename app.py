@@ -11,6 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
 
 app = Flask(__name__, template_folder="templates")
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 
 @app.route("/api/contact", methods=["POST"])
